@@ -6,6 +6,7 @@ import Home from "../pages/Dashboard/Home";
 import StaredTasks from "../pages/Dashboard/StaredTasks";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children: [
             {
                 path: "home",

@@ -6,7 +6,8 @@
         "priority": "Low",
         "deadline": "2023-12-29",
         "order": 0,
-        "description": "Exam will coming. Take preparation."
+        "description": "Exam will coming. Take preparation.",
+        "email": "myemail.abc20@gmail.com"
     },
     {
         "_id": "1234567892",
@@ -15,7 +16,8 @@
         "priority": "High",
         "deadline": "2023-12-26",
         "order": 0,
-        "description": "Project should be complete."
+        "description": "Project should be complete.",
+        "email": "myemail.abc20@gmail.com"
     },
     {
         "_id": "1234567893",
@@ -24,7 +26,8 @@
         "priority": "Moderate",
         "deadline": "2023-12-27",
         "order": 0,
-        "description": "Quick. Manage your time perfectly."
+        "description": "Quick. Manage your time perfectly.",
+        "email": "myemail.abc20@gmail.com"
     },
     {
         "_id": "1234567894",
@@ -33,7 +36,8 @@
         "priority": "Low",
         "deadline": "2023-12-31",
         "order": 2,
-        "description": "SCIC is going to end. So work hard."
+        "description": "SCIC is going to end. So work hard.",
+        "email": "myemail.abc20@gmail.com"
     }
 ]
   
