@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
     return (
-        <div>
-            <h1 className="text-4xl font-medium">Main Layout</h1>
+        <div className="bg-[#F3F4F8]">
+            <Outlet></Outlet>
         </div>
     );
 };
