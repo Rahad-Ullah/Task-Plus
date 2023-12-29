@@ -29,7 +29,7 @@ const SignUp = () => {
                     icon: 'success',
                     confirmButtonText: 'Okay'
                 })
-                navigate('/')
+                navigate('/dashboard')
                 reset()
             }).catch((err) => {
                 console.log(err)

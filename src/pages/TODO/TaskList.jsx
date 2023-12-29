@@ -1,9 +1,9 @@
 import { FaPlus } from "react-icons/fa6";
-
 import { Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Toaster } from "react-hot-toast";
 
 const TaskList = ({ tasks, category, refetch, setTasks }) => {
     const {user} = useAuth()
@@ -32,7 +32,10 @@ const TaskList = ({ tasks, category, refetch, setTasks }) => {
       .then(res => {
         if(res.data.insertedId){
           refetch();
-          setTasks(tasks)
+          const remaining = [...tasks, message]
+          setTasks(remaining)
+          window.location.reload()
+          toast.success('Task Addedz')
         }
       })
       
@@ -41,16 +44,18 @@ const TaskList = ({ tasks, category, refetch, setTasks }) => {
   
   return (
     <div className='space-y-5'>
-        <div className='p-4 bg-base-100 rounded-xl flex justify-between gap-5 items-center'>
+        <div className='p-4 mx-2 bg-base-100 rounded-xl flex justify-between gap-5 items-center'>
             <p className='font-semibold text-lg text-indigo-600'>{category}</p>
             <button onClick={()=>document.getElementById('add_task_modal').showModal()} className="p-2 bg-indigo-100 rounded-lg hover:bg-indigo-200"><FaPlus className="text-indigo-500"/></button>
         </div>
         <Droppable droppableId={category} key={category}>
-        {(provided) => (
-            <div {...provided.droppableProps} ref={provided.innerRef} 
-            className=' space-y-5'>
+        {(provided, snapshot) => (
+            <div 
+            {...provided.droppableProps} 
+            ref={provided.innerRef}
+            className={`space-y-5 p-2 rounded-xl ${snapshot.isDraggingOver ? 'bg-[#4e46e525]' : ''}`}>
             {tasks.map((task, index) => (
-                <Task key={task._id} task={task} index={index} />
+                <Task key={task._id} task={task} index={index} refetch={refetch} tasks={tasks} setTasks={setTasks}/>
             ))}
             {provided.placeholder}
             </div>
@@ -101,6 +106,7 @@ const TaskList = ({ tasks, category, refetch, setTasks }) => {
             </div>
           </div>
         </dialog>
+        <Toaster/>
     </div>
   );
 };

@@ -14,7 +14,9 @@ const Dashboard = () => {
                 {/* Page content here */}
                 <div className="w-full bg-white py-2 px-2 shadow fixed top-0 z-20 flex items-center lg:hidden">
                     <label htmlFor="my-drawer-2" className="btn btn-ghost btn-circle drawer-button"><FaBars className="text-xl"/></label>
-                    <h1 className="text-xl font-bold">Dashboard</h1>
+                   <div className="flex items-center justify-center flex-1">
+                    <h1 className="text-2xl font-bold  text-primary -ml-8">Task <span className="text-3xl mb-1">+</span></h1>
+                   </div>
                 </div>
                 <div className="w-full p-10">
                     <Outlet></Outlet>
@@ -30,7 +32,7 @@ const Dashboard = () => {
                         {/* <li><NavLink to={'/dashboard/home'} className={   ({isActive}) => isActive ? 'text-primary flex items-center gap-4' : 'text-gray-500 flex items-center gap-4'}>
                             <FaHome className="text-lg"/> 
                             Home</NavLink></li> */}
-                        <li><NavLink to={'/dashboard/all-tasks'} className={   ({isActive}) => isActive ? 'text-primary flex items-center gap-4' : 'text-gray-500 flex items-center gap-4'}>
+                        <li><NavLink to={'/dashboard'} className={   ({isActive}) => isActive ? 'text-primary flex items-center gap-4' : 'text-gray-500 flex items-center gap-4'}>
                             <GrTask className="text-lg"/> 
                             All Tasks</NavLink></li>
                         <li><NavLink to={'/dashboard/stared-tasks'} className={   ({isActive}) => isActive ? 'text-primary flex items-center gap-4' : 'text-gray-500 flex items-center gap-4'}>

@@ -50,7 +50,7 @@ const Login = () => {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
-            navigate(location?.state?.from?.pathname || '/')
+            navigate(location?.state?.from?.pathname || '/dashboard')
         })
         .catch(err => {
             console.log(err)
@@ -67,10 +67,10 @@ const Login = () => {
     return (
         <>
         <div className="hero min-h-screen font-dmsans py-8 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div className="hero-content w-full gap-16 justify-center items-center">
-            <div className="card bg-base-100 flex-shrink-0 w-full md:max-w-96 py-8 lg:p-10">
+            <div className="hero-content p-0 w-full gap-16 justify-center items-center">
+            <div className="card bg-base-100 flex-shrink-0 w-full md:max-w-96 p-5 py-8 lg:p-10">
                 <h2 className="text-4xl font-semibold text-center mb-2">Login</h2>
-                <form onSubmit={handleLogin} className="card-body px-0">
+                <form onSubmit={handleLogin} className="card-body pb-2 px-0">
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Email</span>
@@ -104,7 +104,7 @@ const Login = () => {
                         <button className="btn btn-primary normal-case text-base">Login</button>
                     </div>
                 </form>
-                <div className="divider mb-8">OR</div>
+                <div className="divider mb-6">OR</div>
                 <div className="flex justify-center gap-4">
                     <button onClick={handleGoogleSignIn} className="btn btn-primary btn-outline normal-case text-base w-full "><FcGoogle className="text-xl"></FcGoogle>Google</button>
                 </div>

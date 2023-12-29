@@ -2,17 +2,23 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Todo from "../pages/TODO/Todo";
-import Home from "../pages/Dashboard/Home";
 import StaredTasks from "../pages/Dashboard/StaredTasks";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoutes from "./PrivateRoutes";
+import Home from "../pages/Home/Home";
+import NotFound from "../layouts/NotFound";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <NotFound></NotFound>,
         children: [
+            {
+                index: true,
+                element: <Home></Home>
+            },
             {
                 path: "login",
                 element: <Login></Login>
@@ -28,11 +34,7 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children: [
             {
-                path: "home",
-                element: <Home></Home>
-            },
-            {
-                path: "all-tasks",
+                index: true,
                 element: <Todo></Todo>
             },
             {

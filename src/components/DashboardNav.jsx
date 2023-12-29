@@ -1,10 +1,13 @@
+import useAuth from "../hooks/useAuth";
 
 const DashboardNav = () => {
+    const {user, logout} = useAuth()
+    
     return (
-        <div>
-            <div className="navbar bg-base-100 justify-between shadow z-30">
+        <div className="">
+            <div className="navbar bg-base-100 justify-between shadow z-30 px-4 md:px-6 lg:px-8">
                 <div>
-                    <h1 className="text-3xl font-bold">Task Plus</h1>
+                    <h1 className="text-3xl font-bold flex items-center text-primary">Task <span className="text-4xl mb-1">+</span></h1>
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">
@@ -24,7 +27,7 @@ const DashboardNav = () => {
                     <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img alt="User photo" src={user.photoURL} />
                         </div>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -34,7 +37,7 @@ const DashboardNav = () => {
                             <span className="badge">New</span>
                         </a>
                         </li>
-                        <li><a>Logout</a></li>
+                        <li><a onClick={() => logout()}>Logout</a></li>
                     </ul>
                     </div>
                 </div>
